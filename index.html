@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotional Weight Assessment - How Much Is Your Past Holding You Back?</title>
+    <meta name="description" content="Take the free 5-minute Emotional Weight Assessment to discover your Emotional Resilience Score and get personalized healing insights.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --accent: #f97316;
+            --accent-light: #fb923c;
+            --bg-dark: #0f172a;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --border: rgba(255, 255, 255, 0.08);
+            --glow: rgba(99, 102, 241, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Ambient background effects */
+        .bg-effects {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .bg-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.5;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .bg-orb-1 {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, transparent 70%);
+            top: -200px;
+            right: -200px;
+        }
+
+        .bg-orb-2 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.25) 0%, transparent 70%);
+            bottom: -150px;
+            left: -150px;
+            animation-delay: -10s;
+        }
+
+        .bg-orb-3 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(249, 115, 22, 0.15) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: -5s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-30px) scale(1.05); }
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section {
+            display: none;
+            animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Header Styles */
+        .header {
+            text-align: center;
+            padding: 60px 0 40px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(99, 102, 241, 0.15);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.85em;
+            color: #a5b4fc;
+            margin-bottom: 24px;
+        }
+
+        .badge svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.125em;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 40px;
+            margin: 24px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75em;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .intro-text {
+            font-size: 1.05em;
+            margin-bottom: 16px;
+            color: var(--text-secondary);
+        }
+
+        .intro-text strong {
+            color: var(--text-primary);
+        }
+
+        /* Benefits List */
+        .benefits {
+            list-style: none;
+            padding: 20px 0;
+        }
+
+        .benefits li {
+            padding: 12px 0;
+            padding-left: 32px;
+            position: relative;
+            color: var(--text-secondary);
+            font-size: 1.02em;
+        }
+
+        .benefits li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, var(--primary), #a855f7);
+            border-radius: 50%;
+            opacity: 0.8;
+        }
+
+        .benefits li::after {
+            content: '✓';
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.7em;
+            color: white;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            background: linear-gradient(135deg, var(--accent) 0%, #ea580c 100%);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            font-size: 1.1em;
+            font-weight: 600;
+            border-radius: 14px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 4px 24px rgba(249, 115, 22, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(249, 115, 22, 0.4);
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:disabled {
+            background: #374151;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .privacy-note {
+            text-align: center;
+            font-size: 0.85em;
+            color: var(--text-muted);
+            margin-top: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            margin-bottom: 32px;
+        }
+
+        .progress-text {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9em;
+            margin-bottom: 12px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), #a855f7);
+            width: 0%;
+            transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            border-radius: 10px;
+        }
+
+        /* Question Styles */
+        .question {
+            margin-bottom: 24px;
+        }
+
+        .question-text {
+            font-size: 1.15em;
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+            line-height: 1.5;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            padding: 16px 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .option:hover {
+            background: rgba(99, 102, 241, 0.08);
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+
+        .option.selected {
+            background: rgba(99, 102, 241, 0.12);
+            border-color: var(--primary);
+        }
+
+        .option input[type="radio"] {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--text-muted);
+            border-radius: 50%;
+            margin-right: 14px;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.2s;
+        }
+
+        .option.selected input[type="radio"] {
+            border-color: var(--primary);
+            background: var(--primary);
+        }
+
+        .option.selected input[type="radio"]::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+        }
+
+        .option label {
+            cursor: pointer;
+            flex: 1;
+            font-size: 1em;
+            color: var(--text-secondary);
+        }
+
+        .option.selected label {
+            color: var(--text-primary);
+        }
+
+        /* Navigation Buttons */
+        .nav-buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 32px;
+        }
+
+        .nav-button {
+            flex: 1;
+            padding: 16px;
+            font-size: 1em;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .btn-back {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+
+        .btn-back:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .btn-next {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-next:hover {
+            background: var(--primary-dark);
+        }
+
+        .btn-next:disabled {
+            background: #374151;
+            cursor: not-allowed;
+        }
+
+        /* Email Form */
+        .email-form {
+            margin: 32px 0;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 500;
+            color: var(--text-primary);
+            font-size: 0.95em;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 1.05em;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: var(--text-primary);
+            transition: all 0.2s;
+        }
+
+        .form-group input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+        }
+
+        /* Results Box */
+        .results-box {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(168, 85, 247, 0.2) 100%);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            padding: 48px 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 24px 0;
+        }
+
+        .score-label {
+            font-size: 1em;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .score-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 5em;
+            font-weight: 700;
+            background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin: 16px 0;
+        }
+
+        .score-category {
+            font-size: 1.25em;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* Interpretation Box */
+        .interpretation {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border);
+            padding: 32px;
+            border-radius: 16px;
+            margin: 24px 0;
+        }
+
+        .interpretation h3 {
+            color: var(--primary);
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .interpretation p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .symptoms {
+            list-style: none;
+            padding: 16px 0;
+        }
+
+        .symptoms li {
+            padding: 10px 0;
+            padding-left: 28px;
+            position: relative;
+            color: var(--text-secondary);
+        }
+
+        .symptoms li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* CTA Box */
+        .cta-box {
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(234, 88, 12, 0.1) 100%);
+            border: 1px solid rgba(249, 115, 22, 0.2);
+            padding: 32px;
+            border-radius: 16px;
+            margin: 32px 0;
+            text-align: center;
+        }
+
+        .cta-box h3 {
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            font-size: 1.25em;
+        }
+
+        .cta-box p {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+
+        /* Loader */
+        .loader {
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--border);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 24px auto;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Footer Note */
+        .footer-note {
+            text-align: center;
+            margin-top: 32px;
+            color: var(--text-muted);
+            font-size: 0.95em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .container {
+                padding: 16px;
+            }
+            
+            .card {
+                padding: 28px 24px;
+            }
+
+            .header {
+                padding: 40px 0 24px;
+            }
+
+            h1 {
+                font-size: 1.75em;
+            }
+
+            h2 {
+                font-size: 1.4em;
+            }
+
+            .score-number {
+                font-size: 3.5em;
+            }
+
+            .results-box {
+                padding: 32px 24px;
+            }
+        }
+
+        /* Divider */
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border), transparent);
+            margin: 24px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-effects">
+        <div class="bg-orb bg-orb-1"></div>
+        <div class="bg-orb bg-orb-2"></div>
+        <div class="bg-orb bg-orb-3"></div>
+    </div>
+
+    <div class="container">
+        <!-- Landing Section -->
+        <section id="landing" class="section active">
+            <div class="header">
+                <div class="badge">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    5-minute assessment
+                </div>
+                <h1>How Much Is Your Past<br>Holding Back Your Present?</h1>
+                <p class="subtitle">Take the Emotional Weight Assessment</p>
+            </div>
+            
+            <div class="card">
+                <h2>Discover Your Emotional Resilience Score</h2>
+                <p class="intro-text">
+                    <strong>You can't just "get over it"</strong> — and now neuroscience explains why.
+                </p>
+                <p class="intro-text">
+                    Unprocessed emotions create invisible weight that affects your relationships, sleep, 
+                    focus, and daily energy. This science-backed assessment measures your emotional burden 
+                    and shows you exactly where you're carrying it.
+                </p>
+                
+                <div class="divider"></div>
+                
+                <p class="intro-text">
+                    <strong>In 5 minutes, you'll discover:</strong>
+                </p>
+                <ul class="benefits">
+                    <li>Your personalized Emotional Resilience Score</li>
+                    <li>Which past experiences are creating current stress</li>
+                    <li>The specific healing approach that works for your profile</li>
+                    <li>A free guide to start offloading that weight today</li>
+                </ul>
+                
+                <button class="cta-button" onclick="startQuiz()">Start Your Free Assessment</button>
+                <p class="privacy-note">
+                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+                    Your responses are private and secure
+                </p>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="section">
+            <div class="header" style="padding-bottom: 0;">
+                <h1 style="font-size: 1.75em;">Emotional Weight Assessment</h1>
+            </div>
+            <div class="card">
+                <div class="progress-container">
+                    <div class="progress-text">Question <span id="current-q">1</span> of 15</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress"></div>
+                    </div>
+                </div>
+
+                <div id="quiz-container"></div>
+
+                <div class="nav-buttons">
+                    <button class="nav-button btn-back" onclick="previousQuestion()" id="btn-back">← Back</button>
+                    <button class="nav-button btn-next" onclick="nextQuestion()" id="btn-next" disabled>Next →</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Email Capture Section -->
+        <section id="email-capture" class="section">
+            <div class="header" style="padding-bottom: 0;">
+                <h1 style="font-size: 1.75em;">Get Your Results</h1>
+            </div>
+            <div class="card">
+                <h2>Calculating Your Emotional Resilience Score...</h2>
+                <p class="intro-text">
+                    Enter your email to receive your personalized score, detailed interpretation, 
+                    and a free guide on how to start healing.
+                </p>
+
+                <form class="email-form" onsubmit="submitEmail(event)">
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" required placeholder="your@email.com">
+                    </div>
+
+                    <button type="submit" class="cta-button" id="submit-btn">
+                        Show Me My Results
+                    </button>
+                    
+                    <div id="loader" class="loader hidden"></div>
+                </form>
+
+                <p class="privacy-note">
+                    We respect your privacy. Unsubscribe anytime. No spam, ever.
+                </p>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section id="results" class="section">
+            <div class="header" style="padding-bottom: 0;">
+                <h1 style="font-size: 1.75em;">Your Results</h1>
+            </div>
+            <div class="card">
+                <div class="results-box">
+                    <div class="score-label">Your Emotional Resilience Score</div>
+                    <div class="score-number" id="final-score">0</div>
+                    <div class="score-category" id="score-category"></div>
+                </div>
+
+                <div class="interpretation">
+                    <h3>
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        What This Means
+                    </h3>
+                    <p id="interpretation-text"></p>
+                </div>
+
+                <div class="interpretation">
+                    <h3>
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg>
+                        You May Be Experiencing
+                    </h3>
+                    <ul class="symptoms" id="symptoms-list"></ul>
+                </div>
+
+                <div class="interpretation">
+                    <h3>
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+                        Next Steps
+                    </h3>
+                    <p id="next-steps-text"></p>
+                </div>
+
+                <div class="cta-box">
+                    <h3>Ready to Offload This Weight?</h3>
+                    <p>
+                        Rescript Journal uses the science-backed Pennebaker Protocol to help you 
+                        process and release emotional burden in just 4 days.
+                    </p>
+                    <button class="cta-button" onclick="window.location.href='https://rescriptjournal.com'">
+                        Start Your Healing Journey
+                    </button>
+                </div>
+
+                <p class="footer-note">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    Check your email for your detailed PDF guide and healing resources.
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Quiz Questions
+        const questions = [
+            // Category 1: Childhood/Past (5 questions)
+            {
+                text: "I find myself thinking about difficult experiences from my past",
+                category: "past"
+            },
+            {
+                text: "Certain situations trigger strong emotional reactions that feel disproportionate",
+                category: "past"
+            },
+            {
+                text: "I have unresolved feelings about my childhood or upbringing",
+                category: "past"
+            },
+            {
+                text: "Past relationships or losses still affect how I feel today",
+                category: "past"
+            },
+            {
+                text: "There are things I wish I had said or done differently in the past",
+                category: "past"
+            },
+
+            // Category 2: Current State (5 questions)
+            {
+                text: "I feel overwhelmed by daily stress and responsibilities",
+                category: "current"
+            },
+            {
+                text: "My mind races with repetitive thoughts, especially at night",
+                category: "current"
+            },
+            {
+                text: "I experience physical tension (tight chest, clenched jaw, headaches)",
+                category: "current"
+            },
+            {
+                text: "I have trouble falling or staying asleep",
+                category: "current"
+            },
+            {
+                text: "I feel emotionally exhausted even without obvious reasons",
+                category: "current"
+            },
+
+            // Category 3: Behavioral Impact (5 questions)
+            {
+                text: "I avoid situations that might bring up difficult emotions",
+                category: "behavioral"
+            },
+            {
+                text: "I struggle to be vulnerable or open up to people close to me",
+                category: "behavioral"
+            },
+            {
+                text: "I notice patterns repeating in my relationships or life situations",
+                category: "behavioral"
+            },
+            {
+                text: "I use distractions (work, phone, substances) to avoid feeling",
+                category: "behavioral"
+            },
+            {
+                text: "It's hard for me to regulate my emotions when stressed",
+                category: "behavioral"
+            }
+        ];
+
+        const options = [
+            { label: "Never", value: 0 },
+            { label: "Rarely", value: 1 },
+            { label: "Sometimes", value: 2 },
+            { label: "Often", value: 3 },
+            { label: "Very Often", value: 4 }
+        ];
+
+        let currentQuestion = 0;
+        let answers = {};
+
+        // Initialize quiz
+        function startQuiz() {
+            showSection('quiz');
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            const container = document.getElementById('quiz-container');
+            const question = questions[currentQuestion];
+            
+            container.innerHTML = `
+                <div class="question">
+                    <div class="question-text">${currentQuestion + 1}. ${question.text}</div>
+                    <div class="options">
+                        ${options.map((opt, idx) => `
+                            <div class="option" onclick="selectOption(${idx})">
+                                <input type="radio" name="q${currentQuestion}" id="opt${idx}" value="${opt.value}">
+                                <label for="opt${idx}">${opt.label}</label>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+
+            // Restore previous answer if exists
+            if (answers[currentQuestion] !== undefined) {
+                const savedValue = answers[currentQuestion];
+                const radioBtn = document.querySelector(`input[value="${savedValue}"]`);
+                if (radioBtn) {
+                    radioBtn.checked = true;
+                    radioBtn.closest('.option').classList.add('selected');
+                    document.getElementById('btn-next').disabled = false;
+                }
+            }
+
+            // Update progress
+            updateProgress();
+            
+            // Update back button visibility
+            document.getElementById('btn-back').style.visibility = currentQuestion === 0 ? 'hidden' : 'visible';
+        }
+
+        function selectOption(optionIndex) {
+            // Remove all selected classes
+            document.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+            
+            // Add selected class to clicked option
+            const clickedOption = document.querySelectorAll('.option')[optionIndex];
+            clickedOption.classList.add('selected');
+            
+            // Check the radio button
+            const radioBtn = document.getElementById(`opt${optionIndex}`);
+            radioBtn.checked = true;
+            
+            // Save answer
+            answers[currentQuestion] = parseInt(radioBtn.value);
+            
+            // Enable next button
+            document.getElementById('btn-next').disabled = false;
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < questions.length - 1) {
+                currentQuestion++;
+                renderQuestion();
+            } else {
+                // Quiz complete
+                showSection('email-capture');
+            }
+        }
+
+        function previousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                renderQuestion();
+            }
+        }
+
+        function updateProgress() {
+            const progress = ((currentQuestion + 1) / questions.length) * 100;
+            document.getElementById('progress').style.width = progress + '%';
+            document.getElementById('current-q').textContent = currentQuestion + 1;
+        }
+
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        async function submitEmail(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const submitBtn = document.getElementById('submit-btn');
+            const loader = document.getElementById('loader');
+            
+            // Calculate score
+            const totalScore = Object.values(answers).reduce((sum, val) => sum + val, 0);
+            
+            // Show loader
+            submitBtn.disabled = true;
+            loader.classList.remove('hidden');
+            
+            // Prepare data
+            const data = {
+                email: email,
+                score: totalScore,
+                timestamp: new Date().toISOString(),
+                answers: answers
+            };
+            
+            try {
+                // Replace with your Google Apps Script URL
+                const SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+                
+                await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                // Show results (no-cors means we can't check response, so assume success)
+                setTimeout(() => {
+                    showResults(totalScore, email);
+                }, 1000);
+                
+            } catch (error) {
+                console.error('Error:', error);
+                // Still show results even if submission fails
+                showResults(totalScore, email);
+            }
+        }
+
+        function showResults(score, email) {
+            // Determine score category and interpretation
+            let category, interpretation, symptoms, nextSteps;
+            
+            if (score <= 15) {
+                category = "Light Load - Emotional Balance";
+                interpretation = "You're managing your emotional wellbeing relatively well. While everyone carries some weight from their past, you've developed healthy coping mechanisms and maintain good emotional regulation. You may experience occasional stress, but it doesn't significantly impact your daily life.";
+                symptoms = [
+                    "Occasional stress that resolves quickly",
+                    "Generally good sleep and energy levels",
+                    "Able to process emotions in healthy ways"
+                ];
+                nextSteps = "Continue your current practices and use journaling as a preventive tool. The 4-day Rescript protocol can help you process any emerging stressors before they become overwhelming.";
+            } else if (score <= 30) {
+                category = "Moderate Weight - Room for Growth";
+                interpretation = "You're carrying a moderate emotional burden that's starting to affect your daily life. You likely have some unprocessed experiences creating background stress. You're functional, but you might feel like you're working harder than you should to maintain balance.";
+                symptoms = [
+                    "Regular stress or anxiety that lingers",
+                    "Occasional sleep disruption or fatigue",
+                    "Some relationship or communication challenges",
+                    "Recurring negative thought patterns"
+                ];
+                nextSteps = "You would significantly benefit from structured emotional processing. The Rescript Journal's 4-day protocol is designed specifically for people at your level - enough weight to matter, but not so much that you're overwhelmed.";
+            } else if (score <= 45) {
+                category = "Heavy Burden - Healing Needed";
+                interpretation = "You're carrying a significant emotional burden that's actively impacting your quality of life. Past experiences are creating substantial current stress, affecting your relationships, sleep, focus, and wellbeing. You may feel stuck in patterns you can't break.";
+                symptoms = [
+                    "Persistent anxiety, rumination, or emotional exhaustion",
+                    "Sleep problems and physical tension",
+                    "Difficulty in relationships or emotional intimacy",
+                    "Avoidance behaviors or numbing strategies",
+                    "Feeling stuck in negative patterns"
+                ];
+                nextSteps = "It's time to prioritize emotional healing. The science-backed Pennebaker Protocol in Rescript Journal has been proven to reduce stress hormones and improve wellbeing in just 4 days. You deserve support in processing what you're carrying.";
+            } else {
+                category = "Overwhelming Weight - Urgent Support";
+                interpretation = "You're carrying an overwhelming emotional burden that's significantly impacting multiple areas of your life. The weight of unprocessed experiences is creating chronic stress that affects your physical health, relationships, and daily functioning. Please know that what you're experiencing is valid, and healing is possible.";
+                symptoms = [
+                    "Chronic anxiety, depression, or emotional overwhelm",
+                    "Significant sleep disruption and physical symptoms",
+                    "Relationship difficulties or isolation",
+                    "Inability to regulate emotions effectively",
+                    "Heavy reliance on avoidance or coping mechanisms"
+                ];
+                nextSteps = "You would benefit from both structured emotional processing and professional support. The Rescript Journal can be a powerful tool alongside therapy. We also recommend reaching out to a mental health professional who can provide additional support. You don't have to carry this alone.";
+            }
+            
+            // Display results
+            document.getElementById('final-score').textContent = score;
+            document.getElementById('score-category').textContent = category;
+            document.getElementById('interpretation-text').textContent = interpretation;
+            document.getElementById('next-steps-text').textContent = nextSteps;
+            
+            const symptomsList = document.getElementById('symptoms-list');
+            symptomsList.innerHTML = symptoms.map(s => `<li>${s}</li>`).join('');
+            
+            showSection('results');
+            
+            // Store for potential future use
+            localStorage.setItem('emotionalWeightScore', score);
+            localStorage.setItem('emotionalWeightEmail', email);
+        }
+
+        // Handle enter key in quiz
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && document.getElementById('quiz').classList.contains('active')) {
+                const nextBtn = document.getElementById('btn-next');
+                if (!nextBtn.disabled) {
+                    nextQuestion();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
