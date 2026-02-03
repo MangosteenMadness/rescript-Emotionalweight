@@ -1,0 +1,6 @@
+name = "emotional-weight-assessment"
+compatibility_date = "2024-02-03"
+
+[assets]
+directory = "."
+binding = "ASSETS"
