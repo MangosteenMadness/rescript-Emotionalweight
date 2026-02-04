@@ -773,6 +773,46 @@
             background: linear-gradient(90deg, transparent, var(--border), transparent);
             margin: 24px 0;
         }
+
+        .site-footer {
+            text-align: center;
+            padding: 4rem 2rem;
+            margin-top: 4rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-cta {
+            margin-bottom: 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--primary);
+        }
+
+        .made-with-care {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+        }
     </style>
 </head>
 
@@ -952,6 +992,25 @@
             </div>
         </section>
     </div>
+
+    <footer class="site-footer">
+        <div class="footer-cta">
+            <button class="cta-button" onclick="window.location.href='https://rescriptjournal.com'">
+                Start Your Healing Journey with Rescript Journal
+            </button>
+        </div>
+
+        <div class="footer-links">
+            <a href="https://rescriptjournal.com/privacy-policy/" class="footer-link" target="_blank">Privacy Policy</a>
+            <a href="https://rescriptjournal.com/terms-and-condition/" class="footer-link" target="_blank">Terms &
+                Conditions</a>
+            <a href="mailto:help@mangosteen.studio" class="footer-link">Contact: help@mangosteen.studio</a>
+        </div>
+
+        <div class="made-with-care">
+            Made with Care with Rescript Journal
+        </div>
+    </footer>
 
     <script>
         // Quiz Questions
