@@ -199,32 +199,23 @@
         .nav-logo {
             display: flex;
             align-items: center;
-            gap: 8px;
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
+            gap: 10px;
+            font-family: 'DM Sans', sans-serif;
+            /* Modern sans-serif for brand */
+            font-weight: 800;
             font-size: 1.5rem;
             color: var(--text-primary);
-            /* Match Headline Color */
             text-decoration: none;
             transition: opacity 0.2s;
-        }
-
-        .nav-logo:hover {
-            opacity: 0.8;
+            letter-spacing: -0.04em;
+            /* Tight tracking */
         }
 
         .logo-icon {
-            width: 32px;
-            height: 32px;
-            background: var(--primary);
-            color: white;
-            border-radius: 50%;
+            color: var(--primary);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 700;
-            font-size: 1.1rem;
         }
 
         /* Header Styles */
@@ -927,14 +918,13 @@
     <nav class="top-nav">
         <div class="nav-logo">
             <div class="logo-icon">
-                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    style="width: 20px; height: 20px;">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
-                    </path>
+                <!-- Abstract Organic Shape Icon -->
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
                 </svg>
             </div>
-            Emotional Weight Score
+            emotionalweight
         </div>
 
         <a href="https://rescriptjournal.com" class="powered-by-chip" target="_blank">
