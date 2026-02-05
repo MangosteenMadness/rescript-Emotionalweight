@@ -340,7 +340,7 @@
 
         /* CTA Button */
         .cta-button {
-            background: var(--primary);
+            background: linear-gradient(135deg, #7DD3FC 0%, #0EA5E9 100%);
             color: white;
             border: none;
             padding: 20px 48px;
@@ -561,13 +561,13 @@
         }
 
         .btn-next {
-            background: var(--primary);
+            background: linear-gradient(135deg, #7DD3FC 0%, #0EA5E9 100%);
             color: white;
             box-shadow: 0 4px 6px -1px rgba(14, 165, 233, 0.2);
         }
 
         .btn-next:hover {
-            background: var(--primary-dark);
+            opacity: 0.9;
             transform: translateY(-1px);
             box-shadow: 0 6px 16px rgba(99, 102, 241, 0.4);
         }
@@ -865,6 +865,13 @@
             gap: 0.5rem;
             margin-top: 1.5rem;
             font-size: 0.85rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .made-with-care:hover {
+            color: var(--primary);
         }
     </style>
 </head>
@@ -1095,9 +1102,9 @@
             <a href="mailto:help@mangosteen.studio" class="footer-link">Contact</a>
         </div>
 
-        <div class="made-with-care">
-            Made with care by Rescript Journal
-        </div>
+        <a href="https://rescriptjournal.com" class="made-with-care" target="_blank">
+            Built with care by Rescript Journal
+        </a>
     </footer>
 
     <script>
