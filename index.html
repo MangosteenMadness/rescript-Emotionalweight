@@ -203,8 +203,8 @@
             font-family: 'Playfair Display', serif;
             font-weight: 700;
             font-size: 1.5rem;
-            color: #000000;
-            /* Ensure visibility */
+            color: var(--text-primary);
+            /* Match Headline Color */
             text-decoration: none;
             transition: opacity 0.2s;
         }
@@ -883,11 +883,13 @@
         }
 
         .footer-link {
-            color: #000000;
-            /* Max contrast */
-            text-decoration: underline;
+            color: var(--text-secondary);
+            /* Softer Stone 800 */
+            text-decoration: none;
             transition: color 0.3s ease;
-            font-weight: 700;
+            font-weight: 500;
+            font-family: 'DM Sans', sans-serif;
+            /* Explicitly match app font */
         }
 
         .footer-link:hover {
@@ -901,8 +903,8 @@
             gap: 0.5rem;
             margin-top: 1.5rem;
             font-size: 0.85rem;
-            color: #555555;
-            /* Dark grey */
+            color: var(--text-secondary);
+            /* Softer Stone 800 */
             /* Increased contrast from muted */
             text-decoration: none;
             transition: color 0.3s ease;
