@@ -162,9 +162,36 @@
         .top-nav {
             padding: 24px 32px;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             background: transparent;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .powered-by-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            border: 1px solid var(--border);
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+
+        .powered-by-chip:hover {
+            border-color: var(--primary);
+            color: var(--primary-dark);
+            background: white;
+            transform: translateY(-1px);
         }
 
         .nav-logo {
@@ -849,9 +876,11 @@
         }
 
         .footer-link {
-            color: var(--text-secondary);
+            color: var(--text-primary);
+            /* Increased contrast from secondary */
             text-decoration: none;
             transition: color 0.3s ease;
+            font-weight: 500;
         }
 
         .footer-link:hover {
@@ -865,9 +894,11 @@
             gap: 0.5rem;
             margin-top: 1.5rem;
             font-size: 0.85rem;
-            color: var(--text-muted);
+            color: var(--text-secondary);
+            /* Increased contrast from muted */
             text-decoration: none;
             transition: color 0.3s ease;
+            font-weight: 500;
         }
 
         .made-with-care:hover {
@@ -884,9 +915,21 @@
     </div>
 
     <nav class="top-nav">
-        <a href="https://rescriptjournal.com" class="nav-logo">
-            <div class="logo-icon">R</div>
-            Rescript
+        <div class="nav-logo">
+            <div class="logo-icon">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    style="width: 20px; height: 20px;">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
+                    </path>
+                </svg>
+            </div>
+            Emotional Weight Score
+        </div>
+
+        <a href="https://rescriptjournal.com" class="powered-by-chip" target="_blank">
+            <span>Powered by</span>
+            <strong>Rescript Journal</strong>
         </a>
     </nav>
 
