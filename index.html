@@ -10,42 +10,42 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;500;700&family=Playfair+Display:wght@600;700;800&display=swap"
         rel="stylesheet">
     <style>
         :root {
-            /* Reference Design Palette */
-            --primary: #0ea5e9;
-            /* Sky Blue-500 */
-            --primary-dark: #0284c7;
-            /* Sky Blue-600 */
-            --accent: #f97316;
-            /* Warm Orange-500 */
-            --accent-light: #fb923c;
-            /* Warm Orange-400 */
+            /* Terracotta Theme Palette */
+            --primary: #d97757;
+            /* Brand 500 - Terracotta */
+            --primary-dark: #c25e40;
+            /* Brand 600 */
+            --accent: #d4ce5f;
+            /* Accent 500 - Muted Sage/Olive */
+            --accent-light: #f5f5c8;
+            /* Accent 100 */
 
-            --bg-dark: #f8fafc;
-            /* Slate-50 (Page Background) */
+            --bg-dark: #FDFBF7;
+            /* Surface - Warm Cream */
             --bg-card: #ffffff;
-            /* White (Card Background) */
+            /* White Card */
 
-            --text-primary: #0f172a;
-            /* Slate-900 */
-            --text-secondary: #475569;
-            /* Slate-600 */
-            --text-muted: #94a3b8;
-            /* Slate-400 */
+            --text-primary: #44403c;
+            /* Stone 900 */
+            --text-secondary: #57534e;
+            /* Stone 800 */
+            --text-muted: #a8a29e;
+            /* Stone 400 */
 
-            --border: #e2e8f0;
-            /* Slate-200 */
-            --glow: rgba(14, 165, 233, 0.2);
+            --border: #e7e5e4;
+            /* Stone 200 */
+            --glow: rgba(217, 119, 87, 0.2);
 
-            --card-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --card-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
 
-            --selection-bg: #e0f2fe;
-            /* Brand-100 */
-            --selection-text: #0c4a6e;
-            /* Brand-900 */
+            --selection-bg: #ffe4de;
+            /* Brand 100 */
+            --selection-text: #4a1d13;
+            /* Brand 900 */
         }
 
         /* Selection Styling */
@@ -61,7 +61,7 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg-dark);
             color: var(--text-primary);
             line-height: 1.7;
@@ -158,6 +158,45 @@
             animation-delay: 0.4s;
         }
 
+        /* Navigation */
+        .top-nav {
+            padding: 24px 32px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: transparent;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .nav-logo:hover {
+            opacity: 0.8;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
         /* Header Styles */
         .header {
             text-align: center;
@@ -232,44 +271,71 @@
             font-weight: 600;
         }
 
-        /* Benefits List */
-        .benefits {
-            list-style: none;
-            padding: 24px 0;
+        /* Benefits Grid (Bento Box) */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin: 32px 0 40px;
         }
 
-        .benefits li {
-            padding: 12px 0;
-            padding-left: 36px;
-            position: relative;
-            color: var(--text-secondary);
-            font-size: 1.05em;
+        .benefit-card {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 32px 24px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         }
 
-        .benefits li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 24px;
-            height: 24px;
-            background: var(--primary-dark);
-            border-radius: 50%;
+        .benefit-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 20px -8px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefit-icon {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 20px;
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .benefits li::after {
-            content: '✓';
-            position: absolute;
-            left: 7px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 0.8em;
-            color: white;
-            font-weight: bold;
+        .benefit-icon.blue {
+            background: #e0f2fe;
+            color: #0284c7;
+        }
+
+        .benefit-icon.orange {
+            background: #ffedd5;
+            color: #ea580c;
+        }
+
+        .benefit-icon.purple {
+            background: #f3e8ff;
+            color: #9333ea;
+        }
+
+        .benefit-icon svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        .benefit-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .benefit-text {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
 
         /* CTA Button */
@@ -810,6 +876,14 @@
         <div class="bg-orb bg-orb-3"></div>
     </div>
 
+    <nav class="top-nav">
+        <a href="https://rescriptjournal.com" class="nav-logo">
+            <div class="logo-icon">R</div>
+            Rescript
+        </a>
+    </nav>
+
+
     <div class="container">
         <!-- Landing Section -->
         <section id="landing" class="section active">
@@ -819,34 +893,61 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
-                    5-minute assessment
+                    Free 5-minute assessment
                 </div>
                 <h1>How Much Is Your Past<br>Holding Back Your Present?</h1>
-                <p class="subtitle">Take the Emotional Weight Assessment</p>
+                <p class="subtitle">Get your Emotional Weight Score</p>
             </div>
 
             <div class="card">
-                <h2>Discover Your Emotional Resilience Score</h2>
-                <p class="intro-text">
-                    <strong>You can't just "get over it"</strong> — and now neuroscience explains why.
-                </p>
-                <p class="intro-text">
-                    Unprocessed emotions create invisible weight that affects your relationships, sleep,
-                    focus, and daily energy. This science-backed assessment measures your emotional burden
-                    and shows you exactly where you're carrying it.
+                <p class="intro-text" style="text-align: center; max-width: 600px; margin: 0 auto 40px;">
+                    Unprocessed emotions create invisible weight. Discover your personalized
+                    <strong>Emotional Resilience Score</strong> and learn exactly where to start healing.
                 </p>
 
-                <div class="divider"></div>
+                <div class="benefits-grid">
+                    <!-- Card 1 -->
+                    <div class="benefit-card">
+                        <div class="benefit-icon blue">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3 class="benefit-title">Understand Why</h3>
+                        <p class="benefit-text">Discover why you can't just "get over it" and how neuroscience explains
+                            your emotional weight.</p>
+                    </div>
 
-                <p class="intro-text">
-                    <strong>In 5 minutes, you'll discover:</strong>
-                </p>
-                <ul class="benefits">
-                    <li>Your personalized Emotional Resilience Score</li>
-                    <li>Which past experiences are creating current stress</li>
-                    <li>The specific healing approach that works for your profile</li>
-                    <li>A free guide to start offloading that weight today</li>
-                </ul>
+                    <!-- Card 2 -->
+                    <div class="benefit-card">
+                        <div class="benefit-icon orange">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3 class="benefit-title">Pinpoint Stress</h3>
+                        <p class="benefit-text">Identify which specific past experiences are creating invisible stress
+                            in your present day-to-day life.</p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="benefit-card">
+                        <div class="benefit-icon purple">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3 class="benefit-title">Actionable Plan</h3>
+                        <p class="benefit-text">Get a personalized healing approach tailored to your specific resilience
+                            profile and needs.</p>
+                    </div>
+                </div>
 
                 <button class="cta-button" onclick="startQuiz()">Start Your Free Assessment</button>
                 <p class="privacy-note">
@@ -995,7 +1096,7 @@
         </div>
 
         <div class="made-with-care">
-            Made with Care with Rescript Journal
+            Made with care by Rescript Journal
         </div>
     </footer>
 
