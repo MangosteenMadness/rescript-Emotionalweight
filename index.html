@@ -168,6 +168,8 @@
             max-width: 1200px;
             margin: 0 auto;
             width: 100%;
+            position: relative;
+            z-index: 50;
         }
 
         .powered-by-chip {
@@ -201,7 +203,8 @@
             font-family: 'Playfair Display', serif;
             font-weight: 700;
             font-size: 1.5rem;
-            color: var(--text-primary);
+            color: #000000;
+            /* Ensure visibility */
             text-decoration: none;
             transition: opacity 0.2s;
         }
@@ -859,8 +862,12 @@
             padding: 4rem 2rem;
             margin-top: 4rem;
             border-top: 1px solid var(--border);
-            color: var(--text-muted);
+            color: var(--text-primary);
             font-size: 0.9rem;
+            position: relative;
+            z-index: 50;
+            background: white;
+            /* Ensure it covers anything behind it */
         }
 
         .footer-cta {
@@ -876,11 +883,11 @@
         }
 
         .footer-link {
-            color: var(--text-primary);
-            /* Increased contrast from secondary */
-            text-decoration: none;
+            color: #000000;
+            /* Max contrast */
+            text-decoration: underline;
             transition: color 0.3s ease;
-            font-weight: 500;
+            font-weight: 700;
         }
 
         .footer-link:hover {
@@ -894,11 +901,12 @@
             gap: 0.5rem;
             margin-top: 1.5rem;
             font-size: 0.85rem;
-            color: var(--text-secondary);
+            color: #555555;
+            /* Dark grey */
             /* Increased contrast from muted */
             text-decoration: none;
             transition: color 0.3s ease;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .made-with-care:hover {
